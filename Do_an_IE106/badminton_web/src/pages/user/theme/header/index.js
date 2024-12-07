@@ -10,6 +10,7 @@ import { AiFillMail } from "react-icons/ai";
 
 const Header = () =>{
     return (
+    <>
         <div className='header_top'>
             <div className='container'>
                 <div className='row'>
@@ -39,6 +40,19 @@ const Header = () =>{
                 </div>
             </div>
         </div>
+        <div className='row'>
+            <div className='col-xl-3'>
+            LOGO
+            </div>
+            <div className='col-xl-6'>
+            MENU
+            </div>
+            <div className='col-xl-3'>
+            PHONE
+            </div>
+
+        </div>
+    </>
     );
 };
 
