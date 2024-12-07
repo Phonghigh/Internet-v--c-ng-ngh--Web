@@ -1,0 +1,34 @@
+@use "sass:map";
+@import "../../../../style/pages/theme.scss";
+
+.header_top{
+    background-color: aqua;
+}
+
+.header_top_right{
+    background: red;
+    display: flex;
+    justify-content: end;
+
+    ul{
+        display:  flex;
+        column-gap: 10px;
+        list-style: none;
+
+        a {
+            font-size: 14px;
+            display: inline-block;
+            color: map.get($theme-colors, "normal-text");
+        }
+
+        li:last-child {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        span{
+            font-size: 14px;
+            margin-left: 2px;
+        }
+    }
+}

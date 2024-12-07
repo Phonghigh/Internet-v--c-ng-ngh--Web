@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { ROUTERS } from "./utils/router";
 import HomePage from "./pages/user/homePage";
 import ProPage  from "./pages/user/ProfilePage"
-import Masterlayout from "./pages/user/homePage/theme/masterlayout";
+import Masterlayout from "./pages/user/theme/masterlayout";
 
 const renderUserRouter =() =>{
     const userRouters =[
