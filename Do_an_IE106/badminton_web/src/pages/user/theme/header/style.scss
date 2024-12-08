@@ -2,13 +2,13 @@
 @import "../../../../style/pages/theme.scss";
 
 .header_top{
-    background-color: aqua;
+    background-color: rgb(191, 188, 188);
 }
 
 .header_top_left{
 
     ul{
-        background: red;
+        // background: red;
         display: flex;
         justify-content: start;
         column-gap: 10px;
@@ -37,7 +37,7 @@
 }
 
 .header_top_right{
-    background: red;
+    // background: red;
     display: flex;
     justify-content: end;
 
@@ -60,6 +60,71 @@
         span{
             font-size: 14px;
             margin-left: 2px;
+        }
+    }
+}
+
+.header_cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    ul {
+        display: flex;
+        margin-right: 20px;
+
+        li {
+            list-style: none;
+            position: relative;
+            margin-left: 20px;
+            
+            svg{
+                font-size: 25px;
+                color: map.get($theme-colors, "normal-text");
+            }
+
+            span{
+                color: white;
+                background-color: map.get($theme-colors, "main");
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                display: inline-block;
+                text-align: center;
+                line-height: 20px;
+                font-size: 13px;
+                font-weight: 500;
+                left: 16px;
+                top: -6px;
+            }
+        }
+    }
+}
+
+.header_logo{
+    padding: 15px 0;
+}
+
+.header_menu{
+    padding: 24px 0;
+    
+    ul {
+        display: flex;
+        justify-content: space-between;
+        
+        .active a{
+            color: map.get($theme-colors, "main");
+        }
+        a{
+            text-decoration: none;
+            font-size: 14px;
+            color: map.get($theme-colors, "bold-text");
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            padding: 5px 0;
+            display: block;
         }
     }
 }
