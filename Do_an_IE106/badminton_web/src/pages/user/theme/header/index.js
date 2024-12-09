@@ -7,6 +7,7 @@ import { BsTwitter } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillMail } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
@@ -14,7 +15,8 @@ import React, { useState } from 'react';
 
 
 const Header = () =>{
-    const [menus, setMenus] = useState ([
+    const [isShowCategories,setShowCategories] = useState(true);
+    const [menus] = useState ([
         {
             name: "TRANG CHỦ",
             path: ROUTERS.USER.HOME
@@ -141,6 +143,28 @@ const Header = () =>{
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div className='container'>
+            <div className='row hero_categories_container'>
+                <div className='col-lg-3 hero_categories'>
+                    <div className='hero_categories_all' onClick={()=> setShowCategories(!isShowCategories)}>
+                        <AiOutlineMenu />
+                        Danh sách sản phẩm
+                    </div>
+                    <ul className={isShowCategories? "": "hidden"}>
+                        <li>
+                            <Link to={"#"}>Vợt cầu lông</Link>
+                        </li>
+                        <li>
+                            <Link to={"#"}>Giày cầu lông</Link>
+                        </li>
+                        <li>
+                            <Link to={"#"}>Lưới cầu lông</Link>
+                        </li>
+                    </ul>
+                </div>
+            <div className='col-lg-9'>Phai</div>
             </div>
         </div>
     </>
