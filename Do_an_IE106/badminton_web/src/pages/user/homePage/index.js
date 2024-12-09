@@ -13,7 +13,7 @@ const HomePage = () =>{
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3
+            items: 4
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -39,6 +39,9 @@ const HomePage = () =>{
                 </div>
                 <div className='categories_slider_item' id='item_4'>
                     <p>Lưới cầu lông</p>
+                </div>
+                <div className='categories_slider_item' id='item_5'>
+                    <p>Túi cầu lông</p>
                 </div>
             </Carousel>
         </div>

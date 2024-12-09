@@ -5,14 +5,18 @@ $cat1Img: "/assets/user/images/categories/cat-1.webp";
 $cat2Img: "/assets/user/images/categories/cat-2.webp";
 $cat3Img: "/assets/user/images/categories/cat-3.webp";
 $cat4Img: "/assets/user/images/categories/cat-4.webp";
+$cat5Img: "/assets/user/images/categories/cat-5.webp";
 
 .container_categories_slider{
     max-width: 1200px !important;
     margin-bottom: 30px !important;
 
     .categories_slider{
+        margin-top: 30px;
         .categories_slider_item{
-            border: 10px solid white;
+            border-bottom: 10px solid white;
+            border-top: 10px solid white;
+            border-left: 10px solid white;
             background: #ededed;
             height: 300px;
             position: relative;
@@ -63,6 +67,12 @@ $cat4Img: "/assets/user/images/categories/cat-4.webp";
         #item_4{
             // color: white;
             background-image: url($cat4Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #item_5{
+            // color: white;
+            background-image: url($cat5Img);
             background-repeat: no-repeat;
             background-size: contain;
         }

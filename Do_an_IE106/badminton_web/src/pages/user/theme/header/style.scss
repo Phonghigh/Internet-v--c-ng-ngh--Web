@@ -166,11 +166,10 @@ $bannerImg: "/assets/user/images/hero/banner.png";
 }
 
 .hero_search_container{
-    
     .hero_search_form{
         float: left;
-        padding-left: 15px;
-        width: 600px;
+        // padding-left: 15px;
+        width: 83%;
         height: 50px;
         margin-bottom: 30px;
         
@@ -299,6 +298,63 @@ $bannerImg: "/assets/user/images/hero/banner.png";
             letter-spacing: 2px;
             background: white;
             border-radius: 20px;
+        }
+    }
+}
+
+.hero_categories{
+    position: relative;
+    .hero_categories_all{
+        background:  map.get($theme-colors,"main");
+        padding: 15px 25px 15px 40px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        cursor: pointer;
+    
+        svg, span {
+            font-size: 14px;
+            color: #ffffff;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+
+        svg{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    ul {
+        opacity: 1;
+        border: 1px solid #ededed;
+        position: absolute;
+        width: 99%;
+        background: #ffffff;
+        transition: all, 0.2s;
+
+        li {
+            list-style: none;
+
+            a{
+                text-decoration: none;
+                background-color: transparent;
+                font-size: 16px;
+                color: map.get($theme-colors,"normal-text");
+                line-height: 30px;
+                display: flex;
+                padding-left: 40px;
+            }
+
+            &:hover{
+                background: #f7ffff;
+
+                a{
+                    color: map.get($theme-colors,"main");
+                }
+            }
+        }
+        &.hidden{
+            opacity: 0;
         }
     }
 }
