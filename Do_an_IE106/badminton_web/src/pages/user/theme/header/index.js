@@ -16,15 +16,15 @@ import React, { useState } from 'react';
 const Header = () =>{
     const [menus, setMenus] = useState ([
         {
-            name: "Trang chủ",
+            name: "TRANG CHỦ",
             path: ROUTERS.USER.HOME
         },
         {
-            name: "Cửa Hàng",
+            name: "CỬA HÀNG",
             path: ROUTERS.USER.PRODUCTS
         },
         {
-            name: "Sản phẩm",
+            name: "SẢN PHẨM",
             path: "",
             isShowSubmenu: false,
             child: [
@@ -43,11 +43,11 @@ const Header = () =>{
             ]
         },
         {
-            name: "Bài viết",
+            name: "BÀI VIẾT",
             path: ""
         },
         {
-            name: "Liên hệ",
+            name: "LIÊN HỆ",
             path: ""
         },
     ])
@@ -94,9 +94,24 @@ const Header = () =>{
                     <div className='header_menu'>
                         <ul>
                             {menus?.map((menu,menuKey)=>(
-                                    <li key={menuKey} className={menuKey === 0 ? "active": ""}>                                        <Link to ={menu?.path}>: 
+                                    <li key={menuKey} className={menuKey === 0 ? "active": ""}>                                        
+                                        <Link to ={menu?.path}>
                                             {menu?.name}
                                         </Link>
+                                        {
+                                            menu.child && (
+                                                <ul className='header_menu_dropdown'>
+                                                    {
+                                                        menu.child.map((childItem, childKey)=>(
+                                                            <li key={`${menuKey}-${childKey}`}>
+                                                                <Link to={childItem.path}>{childItem.name}</Link>
+                                                            </li>
+                                                        ))
+                                                    }
+                                                    
+                                                </ul>
+                                            )
+                                        }
                                     </li>
                                 ))}
                             {/* <li>
