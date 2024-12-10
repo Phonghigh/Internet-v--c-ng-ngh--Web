@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "../../../../style/pages/theme.scss";
+@import "../../../../style/pages/all";
 
 $bannerImg: "/assets/user/images/hero/banner.png";
 .header_top{
@@ -355,6 +355,56 @@ $bannerImg: "/assets/user/images/hero/banner.png";
         }
         &.hidden{
             opacity: 0;
+        }
+    }
+}
+
+@include Responsive($TABLET_DEVICE){
+    .header_top, .header_menu, .header_cart{
+        display: none;
+    }
+    .humberger_open{
+        display: flex;
+        align-items: center;
+        justify-items: flex-end;
+        height: 100%;
+
+        svg{
+            font-size: 30px;
+            color: black
+        }
+    }
+
+    .humberger_menu_wrapper{
+        position: fixed;
+        width: 300px;
+        background: white;
+        height: 100%;
+        overflow-y: auto;
+        z-index: -999;
+        padding: 30px;
+        padding-top: 50px;
+        opacity: 0;
+        display: block;
+        transition: all, 0.3s;
+
+        &.show{
+            opacity: 1;
+            z-index: 999;
+        }
+    }
+    .humberger_menu_overlay{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: black;
+        z-index: 100;
+        visibility: hidden;
+        transition: all, 0.3s;
+        &:active{
+            visibility: visible !important;
         }
     }
 }

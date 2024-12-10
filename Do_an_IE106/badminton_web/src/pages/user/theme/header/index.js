@@ -12,10 +12,12 @@ import { Link } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
+import { BiUser } from 'react-icons/bi';
 
 
 const Header = () =>{
     const [isShowCategories,setShowCategories] = useState(true);
+    const [isShowHumberger,setShowHumberger] = useState(false);
     const [menus] = useState ([
         {
             name: "TRANG CHỦ",
@@ -56,6 +58,55 @@ const Header = () =>{
     
     return (
     <>
+        <div className={`humberger_menu_wrapper ${isShowHumberger ? "show":""}`}>
+            <div className='header_logo'>
+                <h1>Smash Shop</h1>
+            </div>
+            <div className='humberger_menu_cart'>
+                <ul>
+                    <li>
+                        <Link to="">
+                            <AiOutlineShoppingCart /> <span>1</span>
+                        </Link>
+                    </li>
+                </ul>
+                <div className='header_cart_price'>
+                    Giỏ hàng: <span>{formatter(1001230)}</span>
+                </div>
+            </div>
+            <div className='humberger_menu_widget'>
+                <div className='header_top_right_auth'>
+                    <Link to="">
+                        <BiUser /> Đăng nhập
+                    </Link>
+                </div>
+            </div>
+            <div className='humberger_menu_nav'>
+                <ul>
+                    <li>Menu Item</li>
+                </ul>
+            </div>
+            <div className='header_top_right_social'>
+                <Link to={""}><BsFacebook /></Link>
+                <Link to={""}><BsLinkedin /></Link>
+                <Link to={""}><BsInstagram /></Link>
+                <Link to={""}><BsTwitter /></Link>
+                <Link to={""}><BsFillPersonFill /></Link>
+            </div>
+            <div className='humberger_menu_contact'>
+                <ul>
+                    <li>
+                        <i className='fa fa-envelope' /> Smash@gmail.com
+
+                    </li>
+                    <li>
+                        Miễn phí đơn từ {formatter(200000)}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
         <div className='header_top'>
             <div className='container'>
                 <div className='row'>
@@ -92,7 +143,7 @@ const Header = () =>{
                         <h1>Smash Shop</h1>
                     </div>
                 </div>
-                <div className='col-xl-6'>
+                <div className='col-lg-6'>
                     <div className='header_menu'>
                         <ul>
                             {menus?.map((menu,menuKey)=>(
@@ -116,14 +167,6 @@ const Header = () =>{
                                         }
                                     </li>
                                 ))}
-                            {/* <li>
-                                
-                                <ul>
-                                    <li>Vợt cầu lông</li>
-                                    <li>Vợt cầu lông</li>
-                                    <li>Vợt cầu lông</li>
-                                </ul>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
@@ -141,6 +184,11 @@ const Header = () =>{
                                 </Link>
                             </li>
                         </ul>
+                    </div>
+                    <div className='humberger_open'>
+                        <AiOutlineMenu onClick={()=>
+                            setShowHumberger(!isShowHumberger)}
+                        />
                     </div>
                 </div>
             </div>
