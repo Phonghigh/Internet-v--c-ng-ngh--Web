@@ -5,7 +5,7 @@ import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
-import { AiFillMail, AiOutlinePhone } from "react-icons/ai";
+import { AiFillMail, AiOutlineDownCircle, AiOutlinePhone, AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from 'react-router-dom';
@@ -13,12 +13,13 @@ import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
 import { BiUser } from 'react-icons/bi';
+import { FaEnvelope } from "react-icons/fa";
 
 
 const Header = () =>{
     const [isShowCategories,setShowCategories] = useState(true);
-    const [isShowHumberger,setShowHumberger] = useState(true);
-    const [menus] = useState ([
+    const [isShowHumberger,setShowHumberger] = useState(false);
+    const [menus,setMenus] = useState ([
         {
             name: "TRANG CHỦ",
             path: ROUTERS.USER.HOME
@@ -54,7 +55,7 @@ const Header = () =>{
             name: "LIÊN HỆ",
             path: ""
         },
-    ])
+    ]);
     
     return (
     <>
@@ -70,8 +71,9 @@ const Header = () =>{
                 <ul>
                     <li>
                         <Link to="">
-                            <AiOutlineShoppingCart /> <span>1</span>
+                            <AiOutlineShoppingCart /> <span>2</span>
                         </Link>
+                        
                     </li>
                 </ul>
                 <div className='header_cart_price'>
@@ -87,7 +89,27 @@ const Header = () =>{
             </div>
             <div className='humberger_menu_nav'>
                 <ul>
-                    <li>Menu Item</li>
+                    {menus?.map((menu, menuKey) =>(
+                        <li key={menuKey} to ={menu.path}>
+                            <Link  to= {menu.path} onClick={() =>{
+                                const newMenus = [...menus];
+                                newMenus[menuKey].isShowSubmenu = !newMenus[menuKey].isShowSubmenu;
+                                setMenus(newMenus);
+                            }}>
+                            {menu.name}
+                            {menu.child && (menu.isShowSubmenu? (<AiOutlineDownCircle></AiOutlineDownCircle>) : (<AiOutlineUpCircle></AiOutlineUpCircle>) )}
+                            </Link>
+                            {menu.child && (
+                                <ul className={`header_menu_dropdown ${menu.isShowSubmenu ? "show_submenu" : ""}`}>
+                                    {menu.child.map((childItem,childKey)=>(
+                                        <li key={`${menuKey}-${childKey}`}>
+                                            <Link to={childItem.path}>{childItem.name}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div className='header_top_right_social'>
@@ -100,7 +122,7 @@ const Header = () =>{
             <div className='humberger_menu_contact'>
                 <ul>
                     <li>
-                        <i className='fa fa-envelope' /> Smash@gmail.com
+                        <FaEnvelope /> Smash@gmail.com
 
                     </li>
                     <li>
