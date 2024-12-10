@@ -163,7 +163,7 @@ const Header = () =>{
             </div>
         </div>
         <div className='container'>
-            <div className='row'>
+            <div className='row tablet'>
                 <div className='col-xl-3'>
                     <div className='header_logo'>
                         <h1>Smash Shop</h1>
@@ -221,7 +221,7 @@ const Header = () =>{
         </div>
         <div className='container'>
             <div className='row hero_categories_container'>
-                <div className='col-lg-3 hero_categories'>
+                <div className='col-lg-3 col-md-12 col-xs-12 col-sm-12 hero_categories'>
                     <div className='hero_categories_all' onClick={()=> setShowCategories(!isShowCategories)}>
                         <AiOutlineMenu />
                         Danh sách sản phẩm
@@ -238,7 +238,7 @@ const Header = () =>{
                         </li>
                     </ul>
                 </div>
-            <div className='col-lg-9 hero_search_container'>
+            <div className='col-lg-9 col-xl-12 col-xs-12 col-md-12 col-sm-12 hero_search_container'>
                 <div className='hero_search'>
                     <div className='hero_search_form'>
                         <form>
