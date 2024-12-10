@@ -11,7 +11,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
-
+import { formatter } from '../../../../utils/formatter';
 
 
 const Header = () =>{
@@ -66,7 +66,7 @@ const Header = () =>{
                                 hello @gmail.com
                             </li>
                             <li>
-                                Miễn phí ship đơn từ 200.000 đ
+                                Miễn phí ship đơn từ {formatter(200000)}
                             </li>
                         </ul>
                     </div>
@@ -131,7 +131,7 @@ const Header = () =>{
                     <div className='header_cart'>
                         <div className='header_cart_price'>
                             <span>
-                                100 đ
+                                {formatter(1000000) }
                             </span>
                         </div>
                         <ul>

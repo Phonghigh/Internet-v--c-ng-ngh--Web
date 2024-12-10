@@ -4,8 +4,26 @@ import "react-multi-carousel/lib/styles.css";
 import feature1Img from "../../../assets/user/images/feature/feature-1.jpg"
 import feature2Img from "../../../assets/user/images/feature/feature-2.jpg"
 import feature3Img from "../../../assets/user/images/feature/feature-3.jpg"
+import banner1Img from "../../../assets/user/images/feature/banner-1.webp"
+import banner2Img from "../../../assets/user/images/feature/banner-2.webp"
+import feature4Img from "../../../assets/user/images/feature/feature-4.webp"
+import feature5Img from "../../../assets/user/images/feature/feature-5.webp"
+import feature6Img from "../../../assets/user/images/feature/feature-6.webp"
+import feature7Img from "../../../assets/user/images/feature/feature-7.webp"
+import feature8Img from "../../../assets/user/images/feature/feature-8.webp"
+import feature9Img from "../../../assets/user/images/feature/feature-9.webp"
+import feature10Img from "../../../assets/user/images/feature/feature-10.webp"
+import feature11Img from "../../../assets/user/images/feature/feature-11.webp"
+import feature12Img from "../../../assets/user/images/feature/feature-12.webp"
+import feature13Img from "../../../assets/user/images/feature/feature-13.webp"
+import feature14Img from "../../../assets/user/images/feature/14.webp"
+import {formatter} from "../../../utils/formatter.js"
+
+
 import "./style.scss";
 import { Tabs,TabList,TabPanel,Tab } from 'react-tabs';
+import { AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const HomePage = () =>{
     const responsive = {
@@ -46,6 +64,51 @@ const HomePage = () =>{
                     name: "LI-NING NO.3 BOOST STRING",
                     price: 150000,
                 },
+                {
+                    img: feature4Img,
+                    name: "LI-NING NO.4 BOOST STRING",
+                    price: 250000,
+                },
+                {
+                    img: feature5Img,
+                    name: "Vợt Cầu Lông Yonex Nanoflare 1000Z Trắng",
+                    price: 1500000,
+                },
+                {
+                    img: feature6Img,
+                    name: "Set vợt cầu lông Lining Halbertec 9000 Limited - Olympic Paris 2024",
+                    price: 1500000,
+                },
+                {
+                    img: feature7Img,
+                    name: "Quấn cán Yonex xịn AC130-3EX (3in1) chính hãng",
+                    price: 200000,
+                },
+                {
+                    img: feature8Img,
+                    name: "Quấn cán Yonex xịn AC149-15 EX (1 cuộn) chính hãng",
+                    price: 850000,
+                },
+                {
+                    img: feature9Img,
+                    name: "Quấn cán vợt cầu lông Yonex AC148-15 (1 cuộn) chính hãng",
+                    price: 950000,
+                },
+                {
+                    img: feature10Img,
+                    name: "Quấn cán vợt cầu lông Lining GP100-3",
+                    price: 90000,
+                },
+                {
+                    img: feature11Img,
+                    name: "Quấn cán vợt cầu lông vải",
+                    price: 100000,
+                },
+                {
+                    img: feature12Img,
+                    name: "Lưới BG-9",
+                    price: 200000,
+                },
             ],
         },
         racket: {
@@ -55,6 +118,67 @@ const HomePage = () =>{
                     img: feature1Img,
                     name: "LI-NING AXFORCE BLAST",
                     price: 2000000,
+                },
+                {
+                    img: feature5Img,
+                    name: "Vợt Cầu Lông Yonex Nanoflare 1000Z Trắng",
+                    price: 1500000,
+                },
+                {
+                    img: feature6Img,
+                    name: "Set vợt cầu lông Lining Halbertec 9000 Limited - Olympic Paris 2024",
+                    price: 1500000,
+                },
+                
+            ],
+        },
+        Accessories: {
+            title: "Quấn cán",
+            products: [
+                {
+                    img: feature7Img,
+                    name: "Quấn cán Yonex xịn AC130-3EX (3in1) chính hãng",
+                    price: 200000,
+                },
+                {
+                    img: feature8Img,
+                    name: "Quấn cán Yonex xịn AC149-15 EX (1 cuộn) chính hãng",
+                    price: 850000,
+                },
+                {
+                    img: feature9Img,
+                    name: "Quấn cán vợt cầu lông Yonex AC148-15 (1 cuộn) chính hãng",
+                    price: 950000,
+                },
+                {
+                    img: feature10Img,
+                    name: "Quấn cán vợt cầu lông Lining GP100-3",
+                    price: 90000,
+                },
+                {
+                    img: feature11Img,
+                    name: "Quấn cán vợt cầu lông vải",
+                    price: 100000,
+                },
+            ],
+        },
+        strings: {
+            title: "Lưới cầu lông",
+            products: [
+                {
+                    img: feature12Img,
+                    name: "Lưới BG-9",
+                    price: 200000,
+                },
+                {
+                    img: feature13Img,
+                    name: "Lưới Victor-shin",
+                    price: 150000,
+                },
+                {
+                    img: feature14Img,
+                    name: "Lưới Spin control",
+                    price: 150000,
                 },
                 
             ],
@@ -69,13 +193,34 @@ const HomePage = () =>{
             tablist.push(<Tab key={index}>{data[key].title}</Tab>);
             
             // Tạo nội dung cho từng tabPanel
-            const tabPanel = data[key].products.map((item, j) => (
-                <div key={j} className="featured_product_item">
-                    <img src={item.img} alt={item.name} />
-                    <p>{item.name}</p>
-                    <p>{item.price.toLocaleString()} VND</p>
-                </div>
-            ));
+            const tabPanel = [];
+            data[key].products.forEach((item, j) =>{
+                tabPanel.push(
+                <div className='col-lg-3' key={j}>
+                    <div className='featured_item'>
+                        <div className='featured_item_pic'
+                            style={{
+                                backgroundImage: `url(${item.img })`,
+                            }}
+                        >
+                            <ul className='featured_item_pic_hover'>
+                                <li>
+                                    <AiOutlineEye></AiOutlineEye>
+                                </li>
+                                <li>
+                                    <AiOutlineShoppingCart></AiOutlineShoppingCart>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className='featured_item_text'>
+                            <h6>
+                                <Link to="" className='featured_item_text_title'>{item.name}</Link>
+                            </h6>
+                            <h5>{formatter(item.price)}</h5>
+                        </div>
+                    </div>
+                </div>);
+            });
             tabPanels.push(tabPanel);
         });
     
@@ -84,7 +229,7 @@ const HomePage = () =>{
                 <TabList>{tablist}</TabList>
                 {tabPanels.map((content, key) => (
                     <TabPanel key={key}>
-                        <div className="featured_product_container">
+                        <div className="row">
                             {content}
                         </div>
                     </TabPanel>
@@ -119,6 +264,16 @@ const HomePage = () =>{
                     <h2>Sản Phẩm Nổi Bật</h2>
                 </div>
                 {renderFeatureProduct(featproducts)}
+            </div>
+        </div>
+        <div className='container'>
+            <div className='banner'>
+                <div className='banner_pic'>
+                    <img src={banner1Img} alt='banner'></img>
+                </div>
+                <div className='banner_pic'>
+                    <img src={banner2Img} alt='banner'></img>
+                </div>
             </div>
         </div>
     </>
