@@ -17,7 +17,7 @@ import { BiUser } from 'react-icons/bi';
 
 const Header = () =>{
     const [isShowCategories,setShowCategories] = useState(true);
-    const [isShowHumberger,setShowHumberger] = useState(false);
+    const [isShowHumberger,setShowHumberger] = useState(true);
     const [menus] = useState ([
         {
             name: "TRANG CHỦ",
@@ -58,6 +58,10 @@ const Header = () =>{
     
     return (
     <>
+        <div className={`humberger_menu_overlay ${isShowHumberger ? "active":""}`}>
+
+        </div>
+
         <div className={`humberger_menu_wrapper ${isShowHumberger ? "show":""}`}>
             <div className='header_logo'>
                 <h1>Smash Shop</h1>
