@@ -1,0 +1,93 @@
+@use "sass:map";
+@import "../../style/pages/all";
+
+.discount_form_container {
+    margin: 0 auto;
+    max-width: 1170px;
+    display: flex;
+    // justify-content: space-between;
+    // align-items: flex-start;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+
+    .discount_input {
+        padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    }
+
+    input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    }
+
+    button {
+    padding: 8px 16px;
+    background-color: map.get($theme-colors,"main");
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 320px;
+
+    &:hover {
+        background-color: orangered;
+    }
+    }
+}
+
+.order_summary {
+    float: right;
+    width: 50%;
+    text-align: left;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    h3 {
+    margin-bottom: 10px;
+    color: map.get($theme-colors,"main");
+    }
+
+    p {
+    margin: 5px 0;
+    font-size: 16px;
+        
+        span{
+            float: right;
+        }
+    }
+
+    .checkout_button {
+        text-align: center;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        margin-top: 10px;
+        padding: 10px 20px;
+        width: 92%;
+        background-color: map.get($theme-colors,"main");
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background-color: orangered;
+        }
+    }
+
+}
+}

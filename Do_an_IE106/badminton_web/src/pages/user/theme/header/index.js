@@ -86,8 +86,8 @@ const Header = () =>{
             <div className='humberger_menu_cart'>
                 <ul>
                     <li>
-                        <Link to="">
-                            <AiOutlineShoppingCart /> <span>2</span>
+                        <Link to={ROUTERS.USER.SHOPPINGCART}>
+                            <AiOutlineShoppingCart /> <span>4</span>
                         </Link>
                         
                     </li>
@@ -221,8 +221,8 @@ const Header = () =>{
                         </div>
                         <ul>
                             <li>
-                                <Link to ='#'>
-                                <AiOutlineShoppingCart /> <span>5</span>
+                                <Link to ={ROUTERS.USER.SHOPPINGCART}>
+                                <AiOutlineShoppingCart /> <span>4</span>
                                 </Link>
                             </li>
                         </ul>

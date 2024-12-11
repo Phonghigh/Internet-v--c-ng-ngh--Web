@@ -229,7 +229,8 @@ $bannerImg: "/assets/user/images/hero/banner.png";
     
         .hero_search_phone_text {
             display: inline-block;
-    
+            font-size: 14px;
+            margin-right: 10px;
             p {
                 color: map.get($theme-colors,"normal-text");
                 font-weight: bold;

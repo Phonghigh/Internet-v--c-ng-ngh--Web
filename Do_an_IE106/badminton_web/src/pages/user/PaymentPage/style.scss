@@ -1,0 +1,79 @@
+@use "sass:map";
+@import "../../../style/pages/all";
+
+
+.order-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+
+    .order-form, .order-summary {
+        width: 48%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        
+        h3 {
+        color: map.get($theme-colors,"main");
+        margin-bottom: 15px;
+        }
+
+        .form-group {
+        margin-bottom: 15px;
+        
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            height: 80px;
+        }
+        }
+
+        .item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        }
+
+        
+        .total {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        }
+
+        .total-price {
+        font-size: 18px;
+        font-weight: bold;
+        color: map.get($theme-colors,"main");
+        }
+
+        .order-button {
+        width: 100%;
+        padding: 10px;
+        background-color: map.get($theme-colors,"main");
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: red;
+        }
+        }
+    }
+}
