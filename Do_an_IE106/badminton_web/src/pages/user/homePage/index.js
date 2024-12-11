@@ -1,25 +1,24 @@
 import {memo} from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import feature1Img from "../../../assets/user/images/feature/feature-1.jpg"
-import feature2Img from "../../../assets/user/images/feature/feature-2.jpg"
-import feature3Img from "../../../assets/user/images/feature/feature-3.jpg"
-import banner1Img from "../../../assets/user/images/feature/banner-1.webp"
-import banner2Img from "../../../assets/user/images/feature/banner-2.webp"
-import feature4Img from "../../../assets/user/images/feature/feature-4.webp"
-import feature5Img from "../../../assets/user/images/feature/feature-5.webp"
-import feature6Img from "../../../assets/user/images/feature/feature-6.webp"
-import feature7Img from "../../../assets/user/images/feature/feature-7.webp"
-import feature8Img from "../../../assets/user/images/feature/feature-8.webp"
-import feature9Img from "../../../assets/user/images/feature/feature-9.webp"
-import feature10Img from "../../../assets/user/images/feature/feature-10.webp"
-import feature11Img from "../../../assets/user/images/feature/feature-11.webp"
-import feature12Img from "../../../assets/user/images/feature/feature-12.webp"
-import feature13Img from "../../../assets/user/images/feature/feature-13.webp"
-import feature14Img from "../../../assets/user/images/feature/14.webp"
-import {formatter} from "../../../utils/formatter.js"
-
-
+import feature1Img from "../../../assets/user/images/feature/feature-1.jpg";
+import feature2Img from "../../../assets/user/images/feature/feature-2.jpg";
+import feature3Img from "../../../assets/user/images/feature/feature-3.jpg";
+import banner1Img from "../../../assets/user/images/feature/banner-1.webp";
+import banner2Img from "../../../assets/user/images/feature/banner-2.webp";
+import feature4Img from "../../../assets/user/images/feature/feature-4.webp";
+import feature5Img from "../../../assets/user/images/feature/feature-5.webp";
+import feature6Img from "../../../assets/user/images/feature/feature-6.webp";
+import feature7Img from "../../../assets/user/images/feature/feature-7.webp";
+import feature8Img from "../../../assets/user/images/feature/feature-8.webp";
+import feature9Img from "../../../assets/user/images/feature/feature-9.webp";
+import feature10Img from "../../../assets/user/images/feature/feature-10.webp";
+import feature11Img from "../../../assets/user/images/feature/feature-11.webp";
+import feature12Img from "../../../assets/user/images/feature/feature-12.webp";
+import feature13Img from "../../../assets/user/images/feature/feature-13.webp";
+import feature14Img from "../../../assets/user/images/feature/14.webp";
+import {formatter} from "../../../utils/formatter.js";
+import ProductCard from '../../../component/ProductCard';
 import "./style.scss";
 import { Tabs,TabList,TabPanel,Tab } from 'react-tabs';
 import { AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai';
@@ -196,29 +195,8 @@ const HomePage = () =>{
             const tabPanel = [];
             data[key].products.forEach((item, j) =>{
                 tabPanel.push(
-                <div className='col-lg-3 col-md-4' key={j}>
-                    <div className='featured_item p1-r-10'>
-                        <div className='featured_item_pic'
-                            style={{
-                                backgroundImage: `url(${item.img })`,
-                            }}
-                        >
-                            <ul className='featured_item_pic_hover'>
-                                <li>
-                                    <AiOutlineEye></AiOutlineEye>
-                                </li>
-                                <li>
-                                    <AiOutlineShoppingCart></AiOutlineShoppingCart>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='featured_item_text'>
-                            <h6>
-                                <Link to="" className='featured_item_text_title'>{item.name}</Link>
-                            </h6>
-                            <h5>{formatter(item.price)}</h5>
-                        </div>
-                    </div>
+                <div className='col-lg-3 col-md-4 col-sm-6 col-xs12' key={j}>
+                    <ProductCard name={item.name} img={item.img} price={item.price} />
                 </div>);
             });
             tabPanels.push(tabPanel);
