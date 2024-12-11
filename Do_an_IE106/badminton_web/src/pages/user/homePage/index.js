@@ -182,7 +182,7 @@ const HomePage = () =>{
                 
             ],
         },
-    }
+    };
 
     const renderFeatureProduct = (data) => {
         const tablist = [];

@@ -80,4 +80,33 @@
             }
         }
     }
+
+    
 }
+.product_detail_tab, .section-title {
+    margin: 20px auto;
+    h1{
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+        &::after {
+            position: absolute;
+            right: -120px;
+            top: 20px;
+            height: 1px;
+            width: 43%;
+            background: rgb(179, 178, 178);
+            content: "";
+        }
+        &::before{
+            position: absolute;
+            left: -120px;
+            top: 20px;
+            height: 1px;
+            width: 43%;
+            background: rgb(179, 178, 178);
+            content: "" ;
+        }
+    }
+}
+
