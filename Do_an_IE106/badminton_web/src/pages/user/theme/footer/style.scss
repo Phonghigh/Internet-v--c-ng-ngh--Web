@@ -37,13 +37,19 @@
 
             li{
                 list-style: none;
+                line-height: 30px;
 
                 a{
                     color: map.get($theme-colors,"normal-text");
                     font-size: 14px;
-                    line-height: 2px;
                     text-decoration: none;
+
+                    &:hover{
+                        color: blue;
+                    }
                 }
+
+
             }
         }
         p{

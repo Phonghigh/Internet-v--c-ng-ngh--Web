@@ -1,10 +1,12 @@
 export const ROUTERS ={
     USER: {
-        HOME: "",
+        HOME: "/",
         PROFILE: 'thong-tin-ca-nhan',
         PRODUCTS: '/san-pham',
         PRODUCT: '/san-pham/chi-tiet/:id',
         SHOPPINGCART: '/gio-hang',
         PAYMENT: '/thanh-toan',
+        CONTACT: '/lien-he',
+        ARTICLE: '/bai-viet',
     }
 }

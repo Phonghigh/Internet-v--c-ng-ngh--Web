@@ -16,10 +16,10 @@ const ProductCard= ({img,name, price}) =>{
                 >
                     <ul className='featured_item_pic_hover'>
                         <li>
-                            <AiOutlineEye></AiOutlineEye>
+                            <Link to={ROUTERS.USER.PRODUCT}><AiOutlineEye></AiOutlineEye></Link>
                         </li>
                         <li>
-                            <AiOutlineShoppingCart></AiOutlineShoppingCart>
+                            <Link to={ROUTERS.USER.SHOPPINGCART}><AiOutlineShoppingCart></AiOutlineShoppingCart></Link>
                         </li>
                     </ul>
                 </div>

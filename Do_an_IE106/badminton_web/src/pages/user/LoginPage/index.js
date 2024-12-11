@@ -2,8 +2,7 @@ import {memo} from 'react'
 import BreadCrumb from '../theme/breadCrumb';
 import "./style.scss"
 import { formatter } from '../../../utils/formatter';
-import { ROUTERS } from '../../../utils/router';
-import { Link } from 'react-router-dom';
+
 const Payment = () =>{
     return <>
         <BreadCrumb name="Giỏ hàng"/>
@@ -61,7 +60,7 @@ const Payment = () =>{
                         <span>Tổng đơn:</span>
                         <span class="total-price">{formatter(28800000)}</span>
                     </div>
-                    <Link to={ROUTERS.USER.HOME} class="order-button">ĐẶT HÀNG</Link>
+                    <button class="order-button">ĐẶT HÀNG</button>
                 </div>
             </div>
         </div>

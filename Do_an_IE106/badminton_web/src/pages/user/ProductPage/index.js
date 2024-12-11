@@ -34,7 +34,7 @@ const ProductDetailPage = () =>{
                 </div>
                 <div className='col-lg-6 product_detail_text'>
                     <h2>Vợt cầu lông Victor CLS</h2>
-                    <div className='seen-icon'>
+                    <div className='seen_icon'>
                         <AiOutlineEye/>
                         {`10 người xem`}
                     </div>
@@ -110,9 +110,6 @@ const ProductDetailPage = () =>{
                         </div>
                     ))
                 }
-                <div className='col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                        <ProductCard />
-                </div>
             </div>
         </div>
     </>

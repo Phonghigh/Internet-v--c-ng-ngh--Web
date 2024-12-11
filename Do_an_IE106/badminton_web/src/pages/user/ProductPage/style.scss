@@ -15,11 +15,19 @@
             // background: rgb(211, 211, 211);
             border: 1px solid rgb(215, 215, 215);
             border-radius: 10px;
+            transition: all, 0.5s;
+            &:hover{
+                scale: 1.1;
+            }
         }
+
+        
+
         .main{
             flex:  0 0 35%;
             display: grid;
             align-items: stretch;
+            transition: all, 0.5s;
 
             img{
                 width: 60%;
@@ -27,6 +35,10 @@
 
                 &:not(:first-child){
                     padding-top: 5px;
+                }
+
+                &:hover{
+                    scale: 1.1;
                 }
             }
         }
@@ -40,10 +52,11 @@
         .seen_icon{
             display: flex;
             align-items: center;
-            font-size: 13px;
+            // justify-content: center;
+            font-size: 15px;
             line-height: 30px;
-            column-gap: 5px;
-
+            gap: 5px;
+            color: black;
         }
 
         p{

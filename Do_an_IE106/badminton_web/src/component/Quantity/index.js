@@ -1,6 +1,8 @@
 import { memo } from "react";
 import "./style.scss";
 import {React,  useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTERS } from "../../utils/router";
 const Quantity = ({ quantity = 1, hasAddCart = true }) => {
     const [value, setValue] = useState(quantity); 
 
@@ -30,9 +32,9 @@ const Quantity = ({ quantity = 1, hasAddCart = true }) => {
                 <span className="qtybtn" onClick={handleIncrease}>+</span>
             </div>
             {hasAddCart && (
-                <button type="submit" className="button_submit">
+                <Link to={ROUTERS.USER.PAYMENT} className="button_submit">
                     Thêm giỏ hàng
-                </button>
+                </Link>
             )}
         </div>
     );

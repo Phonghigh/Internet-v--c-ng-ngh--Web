@@ -7,6 +7,8 @@ import ProductsPage from "./pages/user/ProductsPage";
 import ProductDetailPage from "./pages/user/ProductPage";
 import ShoppingCart from "./pages/user/ShoppingCartPage";
 import PaymentPage from "./pages/user/PaymentPage";
+import ContactPage from "./pages/user/ContactPage";
+import Article from "./pages/user/Article";
 
 const renderUserRouter =() =>{
     const userRouters =[
@@ -33,6 +35,14 @@ const renderUserRouter =() =>{
         {
             path: ROUTERS.USER.PAYMENT,
             component: PaymentPage
+        },
+        {
+            path: ROUTERS.USER.CONTACT,
+            component: ContactPage
+        },
+        {
+            path: ROUTERS.USER.ARTICLE,
+            component: Article
         },
     ];
 

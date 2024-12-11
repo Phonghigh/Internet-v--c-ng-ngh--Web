@@ -8,7 +8,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillMail, AiOutlineDownCircle, AiOutlinePhone, AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Link,useLocation } from 'react-router-dom';
+import { Link,Router,useLocation } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
@@ -38,30 +38,34 @@ const Header = () =>{
         },
         {
             name: "SẢN PHẨM",
-            path: "",
+            path: ROUTERS.USER.PRODUCT,
             isShowSubmenu: false,
             child: [
                 {
                     name: "Vợt cầu lông",
-                    path: "",
+                    path: ROUTERS.USER.PRODUCT,
                 },
                 {
                     name: "Giày cầu lông",
-                    path: "",
+                    path: ROUTERS.USER.PRODUCT,
                 },
                 {
                     name: "Lưới cầu lông",
-                    path: "",
+                    path: ROUTERS.USER.PRODUCT,
+                },
+                {
+                    name: "Quấn cán cầu lông",
+                    path: ROUTERS.USER.PRODUCT,
                 },
             ]
         },
         {
             name: "BÀI VIẾT",
-            path: ""
+            path: ROUTERS.USER.ARTICLE,
         },
         {
             name: "LIÊN HỆ",
-            path: ""
+            path: ROUTERS.USER.CONTACT,
         },
     ]);
     
@@ -107,7 +111,7 @@ const Header = () =>{
                 <ul>
                     {menus?.map((menu, menuKey) =>(
                         <li key={menuKey} to ={menu.path}>
-                            <Link  to= {menu.path} onClick={() =>{
+                            <Link  to= {ROUTERS.USER.PRODUCT} onClick={() =>{
                                 const newMenus = [...menus];
                                 newMenus[menuKey].isShowSubmenu = !newMenus[menuKey].isShowSubmenu;
                                 setMenus(newMenus);
@@ -251,16 +255,16 @@ const Header = () =>{
                             })
                         } */}
                         <li>
-                            <Link to={"#"}>Vợt cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCTS}>Vợt cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>Giày cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCTS}>Giày cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>Lưới cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCTS}>Lưới cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>Quấn cán cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCTS}>Quấn cán cầu lông</Link>
                         </li>
                         
                     </ul>
@@ -292,7 +296,7 @@ const Header = () =>{
                                 Chất
                             </h2>
                             <p>Bạn gái có thể không có<br />Vợt cầu lông nhất định phải có</p>
-                            <Link to="#" className='primary_btn'>
+                            <Link to={ROUTERS.USER.PRODUCTS} className='primary_btn'>
                                 Mua Ngay
                             </Link>
                         </div>

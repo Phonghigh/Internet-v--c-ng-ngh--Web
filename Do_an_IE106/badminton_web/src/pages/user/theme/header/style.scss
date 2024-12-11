@@ -159,7 +159,7 @@ $bannerImg: "/assets/user/images/hero/banner.png";
             }
         }
 
-        li:hover .header_menu_dropdown{
+        &:hover .header_menu_dropdown{
             opacity: 1;
             visibility: visible;
         }
