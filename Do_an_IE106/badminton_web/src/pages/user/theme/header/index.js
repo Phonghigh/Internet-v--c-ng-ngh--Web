@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import {memo, useEffect} from 'react'
 import "./style.scss"
 import { BsLinkedin } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
@@ -8,16 +8,24 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillMail, AiOutlineDownCircle, AiOutlinePhone, AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
 import { BiUser } from 'react-icons/bi';
 import { FaEnvelope } from "react-icons/fa";
 
+export const categories =[
+    "Vợt cầu lông",
+    "Giày cầu lông",
+    "Lưới cầu lông",
+    "Quấn cán cầu lông",
+];
 
 const Header = () =>{
-    const [isShowCategories,setShowCategories] = useState(true);
+    const location = useLocation();
+    const [isHome,setHome] = useState(location.pathname.length <=1);
+    const [isShowCategories,setShowCategories] = useState(isHome);
     const [isShowHumberger,setShowHumberger] = useState(false);
     const [menus,setMenus] = useState ([
         {
@@ -57,6 +65,14 @@ const Header = () =>{
         },
     ]);
     
+
+
+    useEffect(() => {
+        const isHome = location.pathname.length <=1;
+        setHome(isHome);
+        setShowCategories(isHome);
+    }, (location));
+
     return (
     <>
         <div className={`humberger_menu_overlay ${isShowHumberger ? "active":""}`}>
@@ -227,6 +243,13 @@ const Header = () =>{
                         Danh sách sản phẩm
                     </div>
                     <ul className={isShowCategories? "": "hidden"}>
+                        {
+                            categories.map((categories,key) =>{
+                                <li key={key}>
+
+                                </li>
+                            })
+                        }
                         <li>
                             <Link to={"#"}>Vợt cầu lông</Link>
                         </li>
@@ -236,6 +259,10 @@ const Header = () =>{
                         <li>
                             <Link to={"#"}>Lưới cầu lông</Link>
                         </li>
+                        <li>
+                            <Link to={"#"}>Quấn cán cầu lông</Link>
+                        </li>
+                        
                     </ul>
                 </div>
             <div className='col-lg-9 col-xl-12 col-xs-12 col-md-12 col-sm-12 hero_search_container'>
@@ -256,19 +283,21 @@ const Header = () =>{
                         </div>
                     </div>
                 </div>
-                <div className='hero_item'>
-                    <div className='hero_text'>
-                        <span>Trải nghiệm tuyệt vời</span>
-                        <h2>
-                            Phong cách<br/>
-                            Chất
-                        </h2>
-                        <p>Bạn gái có thể không có<br />Vợt cầu lông nhất định phải có</p>
-                        <Link to="#" className='primary_btn'>
-                            Mua Ngay
-                        </Link>
+                {
+                    isHome && (<div className='hero_item'>
+                        <div className='hero_text'>
+                            <span>Trải nghiệm tuyệt vời</span>
+                            <h2>
+                                Phong cách<br/>
+                                Chất
+                            </h2>
+                            <p>Bạn gái có thể không có<br />Vợt cầu lông nhất định phải có</p>
+                            <Link to="#" className='primary_btn'>
+                                Mua Ngay
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
 
             </div>
