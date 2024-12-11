@@ -1,0 +1,93 @@
+@use "sass:map";
+@import "../../../style/pages/all";
+
+
+/* Đặt kiểu cho toàn bộ container của trang đăng nhập */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fa;
+}
+
+.login-form {
+background-color: white;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 400px;
+text-align: center;
+}
+
+h2 {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.input-group {
+margin-bottom: 20px;
+text-align: left;
+}
+
+.input-group label {
+display: block;
+font-size: 14px;
+color: #555;
+margin-bottom: 5px;
+}
+
+.input-group input {
+width: 100%;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+outline: none;
+transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+border-color: #007bff;
+}
+
+.login-btn {
+width: 100%;
+padding: 12px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+background-color: #0056b3;
+}
+
+.forgot-password {
+margin-top: 15px;
+}
+
+.forgot-password a {
+color: #007bff;
+text-decoration: none;
+font-size: 14px;
+}
+
+.forgot-password a:hover {
+text-decoration: underline;
+}
+
+.error-message {
+background-color: #f8d7da;
+color: #721c24;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 20px;
+font-size: 14px;
+}
+  

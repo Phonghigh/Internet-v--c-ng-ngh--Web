@@ -3,10 +3,10 @@ import "./style.scss"; // Thêm file CSS riêng
 import { formatter } from "../../utils/formatter";
 import { Link } from "react-router-dom";
 import { ROUTERS } from "../../utils/router";
-const DiscountForm = () => {
+const DiscountForm = ({total_price,total_Quantity}) => {
+
 const [discountCode, setDiscountCode] = useState("");
-const [totalQuantity, setTotalQuantity] = useState(4); // Ví dụ số lượng
-const [totalPrice, setTotalPrice] = useState(32000000); // Tổng tiền mặc định (VNĐ)
+const [totalPrice, setTotalPrice] = useState(Number(total_price)); // Tổng tiền mặc định (VNĐ)
 
 const handleApplyDiscount = () => {
 
@@ -33,8 +33,8 @@ const handleApplyDiscount = () => {
         </div>
         <div className="order_summary">
             <h3>Tổng đơn:</h3>
-            <p>Số lượng: <span>{totalQuantity}</span></p>
-            <p>Thành tiền: <span>{formatter(totalPrice)}</span> đ</p>
+            <p>Số lượng: <span>{total_Quantity}</span></p>
+            <p>Thành tiền: <span>{formatter(total_price)}</span> đ</p>
             <p className="checkout_button"><Link to={ROUTERS.USER.PAYMENT} >THANH TOÁN</Link></p>
         </div>
     </div>

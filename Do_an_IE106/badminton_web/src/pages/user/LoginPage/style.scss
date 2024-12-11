@@ -2,78 +2,86 @@
 @import "../../../style/pages/all";
 
 
-.order-container {
+.container_login {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: white;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: all 1s;
+    &.login-mode {
+        background-image: url("../../../assets/user/images/login/login2.webp");
+    }
+    
+    // Hình nền khi ở chế độ đăng ký
+    &.register-mode {
+        background-image: url("../../../assets/user/images/login/register.webp");
+    }
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+
+.form-section {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+
+.form {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
     border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    
+    // height: 300px;
+    align-items: center;
 
-    .order-form, .order-summary {
-        width: 48%;
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        
-        h3 {
-        color: map.get($theme-colors,"main");
-        margin-bottom: 15px;
-        }
+    h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    }
 
-        .form-group {
-        margin-bottom: 15px;
-        
-        label {
-            display: block;
-            font-weight: bold;
-        }
+    form {
+    display: flex;
+    flex-direction: column;
 
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid black;
-            border-radius: 4px;
+    input {
+        width: 97%;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        &::placeholder{
+            font-size: 20px;
         }
-        
-        textarea {
-            height: 80px;
-        }
-        }
+    }
 
-        .item {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        }
-
-        
-        .total {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        }
-
-        .total-price {
-        font-size: 18px;
-        font-weight: bold;
-        color: map.get($theme-colors,"main");
-        }
-
-        .order-button {
-        width: 100%;
-        padding: 10px;
-        background-color: map.get($theme-colors,"main");
+    button {
+        margin-bottom: 20px;
+        font-size: 25px;
+        padding: 0.75rem;
+        background: #007bff;
         color: white;
         border: none;
-        border-radius: 4px;
-        font-weight: bold;
+        border-radius: 5px;
         cursor: pointer;
         
         &:hover {
-            background-color: red;
-        }
+        background: #0056b3;
         }
     }
+    }
+
+    .toggle-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+        color: #0056b3;
+    }
+    }
+}
 }

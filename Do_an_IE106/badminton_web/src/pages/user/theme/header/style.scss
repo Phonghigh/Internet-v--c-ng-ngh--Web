@@ -134,9 +134,17 @@ $bannerImg: "/assets/user/images/hero/banner.png";
 
         li{
             list-style: none;
+            
+            &:hover > ul.header_menu_dropdown{
+                // background: red;
+                opacity: 1;
+                visibility: visible;
+            }
         }
+        
         .header_menu_dropdown {
-            background: #222222;
+            // background: #222222;
+            // border: 1px solid ;
             display: block;
             position: absolute;
             width: 180px;
@@ -145,24 +153,32 @@ $bannerImg: "/assets/user/images/hero/banner.png";
             transition: all, 0.3s;
             opacity: 0;
             visibility: hidden;
-
+            
             li{
                 a{
+                    // margin-bottom: 10px;
                     text-transform: capitalize;
-                    color: white;
+                    color: black;
                     font-weight: 400;
                     padding: 5px 15px;
+                    position: relative;
+                    background: #ededed;
+                    &:hover{
+                        background: map.get($theme-colors,"main");
+                    }
                 }
-                a:hover{
-                    color: map.get($theme-colors,"main");
+                a.active::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -5px; /* Khoảng cách gạch chân với chữ */
+                    height: 2px; /* Độ dày của gạch chân */
+                    background-color: blue; /* Màu sắc của gạch chân */
                 }
             }
         }
-
-        &:hover .header_menu_dropdown{
-            opacity: 1;
-            visibility: visible;
-        }
+        
     }
 }
 
@@ -300,6 +316,15 @@ $bannerImg: "/assets/user/images/hero/banner.png";
             letter-spacing: 2px;
             background: white;
             border-radius: 20px;
+            border:  2px solid ;
+            transition: all 0.5s;
+            color: black;
+
+            &:hover{
+                background: black;
+                color: white;
+                border: 1px solid black;
+            }
         }
     }
 }

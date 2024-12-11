@@ -1,3 +1,5 @@
+export const admin_path = "/quan-tri"
+
 export const ROUTERS ={
     USER: {
         HOME: "/",
@@ -8,5 +10,10 @@ export const ROUTERS ={
         PAYMENT: '/thanh-toan',
         CONTACT: '/lien-he',
         ARTICLE: '/bai-viet',
+        LOGIN: '/dang-nhap',
+
+    },
+    ADMIN: {
+        LOGIN: `${admin_path}/dang-nhap`,
     }
 }

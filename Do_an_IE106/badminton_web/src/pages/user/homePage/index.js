@@ -17,12 +17,12 @@ import feature11Img from "../../../assets/user/images/feature/feature-11.webp";
 import feature12Img from "../../../assets/user/images/feature/feature-12.webp";
 import feature13Img from "../../../assets/user/images/feature/feature-13.webp";
 import feature14Img from "../../../assets/user/images/feature/14.webp";
-import {formatter} from "../../../utils/formatter.js";
 import ProductCard from '../../../component/ProductCard';
 import "./style.scss";
 import { Tabs,TabList,TabPanel,Tab } from 'react-tabs';
-import { AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { ROUTERS } from '../../../utils/router.js';
+import { useState } from 'react';
 
 const HomePage = () =>{
     const responsive = {
@@ -184,12 +184,20 @@ const HomePage = () =>{
         },
     };
 
-    const renderFeatureProduct = (data) => {
+    const RenderFeatureProduct = (data) => {
+        const [activeTab, setActiveTab] = useState(0);
         const tablist = [];
         const tabPanels = [];
     
         Object.keys(data).forEach((key, index) => {
-            tablist.push(<Tab key={index}>{data[key].title}</Tab>);
+            tablist.push(
+                <Tab 
+                key={index}
+                className={`tab ${activeTab === index ? 'active' : ''}`} // Thêm class active nếu tab này được chọn
+                onClick={() => setActiveTab(index)}
+                >
+                    {data[key].title}
+                </Tab>);
             
             // Tạo nội dung cho từng tabPanel
             const tabPanel = [];
@@ -218,21 +226,28 @@ const HomePage = () =>{
     return (
     <>
         <div className='container container_categories_slider'>
-            <Carousel responsive={responsive} className='categories_slider'>
+            <Carousel 
+                responsive={responsive} 
+                className='categories_slider'
+                autoPlay={true} // Bật tự động chuyển
+                autoPlaySpeed={2000} // Tốc độ tự động chuyển (ms)
+                infinite={true} // Vòng lặp carousel
+                transitionDuration={3000}//tốc độ animate
+            >
                 <div className='categories_slider_item' id='item_1'>
-                    <p>Vợt cầu lông</p>
+                    <Link to={ROUTERS.USER.PRODUCTS}><p>Vợt cầu lông</p></Link>
                 </div>
                 <div className='categories_slider_item' id='item_2'>
-                    <p>Giày cầu lông</p>
+                    <Link to={ROUTERS.USER.PRODUCTS}><p>Giày cầu lông</p></Link>
                 </div>
                 <div className='categories_slider_item' id='item_3'>
-                    <p>Quấn cán</p>
+                    <Link to={ROUTERS.USER.PRODUCTS}><p>Quấn cán</p></Link>
                 </div>
                 <div className='categories_slider_item' id='item_4'>
-                    <p>Lưới cầu lông</p>
+                    <Link to={ROUTERS.USER.PRODUCTS}><p>Lưới cầu lông</p></Link>
                 </div>
                 <div className='categories_slider_item' id='item_5'>
-                    <p>Túi cầu lông</p>
+                    <Link to={ROUTERS.USER.PRODUCTS}><p>Túi cầu lông</p></Link>
                 </div>
             </Carousel>
         </div>
@@ -241,7 +256,7 @@ const HomePage = () =>{
                 <div className="section_title">
                     <h2>Sản Phẩm Nổi Bật</h2>
                 </div>
-                {renderFeatureProduct(featproducts)}
+                {RenderFeatureProduct(featproducts)}
             </div>
         </div>
         <div className='container'>

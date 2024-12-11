@@ -18,6 +18,17 @@
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
+        .cart_item {
+            transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động */
+            opacity: 1; /* Mặc định hiển thị */
+        }
+        
+        .cart_item.removing {
+            opacity: 0; /* Mờ dần khi bị xóa */
+            transform: translateX(-50px); /* Di chuyển sang trái */
+            pointer-events: none; /* Vô hiệu hóa sự kiện */
+        }
+
         table {
             border: 1px solid #ddd;
             width: 100%;

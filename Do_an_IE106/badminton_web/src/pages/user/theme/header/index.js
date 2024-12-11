@@ -14,6 +14,7 @@ import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
 import { BiUser } from 'react-icons/bi';
 import { FaEnvelope } from "react-icons/fa";
+import { useTotalPrice } from '../../../../component/TotalPrice';
 
 export const categories =[
     "Vợt cầu lông",
@@ -69,7 +70,17 @@ const Header = () =>{
         },
     ]);
     
+    const { totalPrice, updateTotalPrice } = useTotalPrice(); // Lấy totalPrice từ context
+    const [storedTotalPrice, setStoredTotalPrice] = useState(0);
 
+
+    useEffect(() => {
+        const sessionTotalPrice = sessionStorage.getItem('totalPrice');
+        if (storedTotalPrice) {
+            setStoredTotalPrice(Number(sessionTotalPrice));
+            updateTotalPrice(Number(sessionTotalPrice)); // Cập nhật giá trị từ sessionStorage vào context
+        }
+    }, []);
 
     useEffect(() => {
         const isHome = location.pathname.length <=1;
@@ -102,7 +113,7 @@ const Header = () =>{
             </div>
             <div className='humberger_menu_widget'>
                 <div className='header_top_right_auth'>
-                    <Link to="">
+                    <Link to={ROUTERS.USER.LOGIN}>
                         <BiUser /> Đăng nhập
                     </Link>
                 </div>
@@ -173,8 +184,10 @@ const Header = () =>{
                             <li><BsLinkedin /></li>
                             <li><BsInstagram /></li>
                             <li><BsTwitter /></li>
-                            <li><BsFillPersonFill />
-                            <span>Đăng Nhập</span>
+                            <li>
+                            <Link to={ROUTERS.USER.LOGIN}>
+                            <BiUser /> Đăng nhập
+                            </Link>
                             </li>
                         </ul>
                     </div>
@@ -192,27 +205,23 @@ const Header = () =>{
                 <div className='col-lg-6'>
                     <div className='header_menu'>
                         <ul>
-                            {menus?.map((menu,menuKey)=>(
-                                    <li key={menuKey} className={menuKey === 0 ? "active": ""}>                                        
-                                        <Link to ={menu?.path}>
-                                            {menu?.name}
-                                        </Link>
-                                        {
-                                            menu.child && (
-                                                <ul className='header_menu_dropdown'>
-                                                    {
-                                                        menu.child.map((childItem, childKey)=>(
-                                                            <li key={`${menuKey}-${childKey}`}>
-                                                                <Link to={childItem.path}>{childItem.name}</Link>
-                                                            </li>
-                                                        ))
-                                                    }
-                                                    
-                                                </ul>
-                                            )
-                                        }
-                                    </li>
-                                ))}
+                        {menus?.map((menu, menuKey) => {
+                            const isActive = location.pathname === menu.path; // Kiểm tra menu hiện tại có đang được active không
+                            return (
+                                <li key={menuKey} className={isActive ? "active" : ""}>
+                                <Link to={menu?.path}>{menu?.name}</Link>
+                                {menu.child && (
+                                    <ul className="header_menu_dropdown">
+                                    {menu.child.map((childItem, childKey) => (
+                                        <li key={`${menuKey}-${childKey}`}>
+                                        <Link to={childItem.path}>{childItem.name}</Link>
+                                        </li>
+                                    ))}
+                                    </ul>
+                                )}
+                                </li>
+                            );
+                            })}
                         </ul>
                     </div>
                 </div>
@@ -220,7 +229,7 @@ const Header = () =>{
                     <div className='header_cart'>
                         <div className='header_cart_price'>
                             <span>
-                                {formatter(1000000) }
+                                {formatter(totalPrice) }
                             </span>
                         </div>
                         <ul>

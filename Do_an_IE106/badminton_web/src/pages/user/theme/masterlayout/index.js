@@ -1,15 +1,24 @@
 import {memo} from 'react'
 import Header from '../header';
-import Footer from '../footer';
+import Footer from '../../../common/footer';
+import { useLocation } from 'react-router-dom';
+import { ROUTERS } from '../../../../utils/router';
+import { TotalPriceProvider } from '../../../../component/TotalPrice';
 
-const masterlayout = ({children, ...props}) =>{
+
+const Masterlayout = ({children, ...props}) =>{
+    const location = useLocation();
+    const isLoginRouters = location.pathname.startsWith(ROUTERS.USER.LOGIN);
+
     return  (
-    <div {...props}>
-        <Header/>
-        {children}
-        <Footer/>
-    </div>
+    <TotalPriceProvider>
+        <div {...props}>
+            <Header />
+            {children}
+            {!isLoginRouters && <Footer/>}
+        </div>
+    </TotalPriceProvider>
     );
 };
 
-export default memo(masterlayout);
+export default memo(Masterlayout);
