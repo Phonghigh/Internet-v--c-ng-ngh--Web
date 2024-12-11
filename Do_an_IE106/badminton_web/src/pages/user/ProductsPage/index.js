@@ -80,7 +80,7 @@ const ProductsPage = () =>{
         <BreadCrumb name="Danh Sách Sản Phẩm" />
         <div className='container'>
             <div className='row'>
-                <div className='col-log-3'>
+                <div className='col-log-3 col-md-12'>
                     <div className='slidebar'>
                         <div className='slidebar_item'>
                             <h2>Tìm Kiếm</h2>
@@ -116,7 +116,7 @@ const ProductsPage = () =>{
                             <ul>
                                 {categories.map((name,key)=>(
                                     <li key={key}>
-                                        <Link to={ROUTERS.USER.PRODUCTS}>{name}</Link>
+                                        <Link to={ROUTERS.USER.PRODUCT}>{name}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -126,7 +126,7 @@ const ProductsPage = () =>{
                     <div className='col-lg-9'>
                         <div className='row'>
                             { products.map((item,key) =>(
-                                <div className='col-lg-3 col-md-4' >
+                                <div className='col-lg-3 col-md-4 col-sm-6 col-xs-12' >
                                     <ProductCard name={item.name} img={item.img} price={item.price} />
                                 </div>
                             ))}

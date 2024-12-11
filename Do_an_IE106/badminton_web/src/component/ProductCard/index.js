@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { generatePath, Link } from "react-router-dom"
 import { formatter } from "../../utils/formatter"
 import { AiOutlineEye,AiOutlineShoppingCart } from "react-icons/ai"
 import { memo } from "react";
 import "./style.scss"
+import { ROUTERS } from "../../utils/router";
 
 const ProductCard= ({img,name, price}) =>{
     return(
@@ -24,7 +25,9 @@ const ProductCard= ({img,name, price}) =>{
                 </div>
                 <div className='featured_item_text'>
                     <h6>
-                        <Link to="" className='featured_item_text_title'>{name}</Link>
+                        <Link to={generatePath(ROUTERS.USER.PRODUCT,{id: 1} )} className='featured_item_text_title'>
+                        {name}
+                        </Link>
                     </h6>
                     <h5>{formatter(price)}</h5>
                 </div>

@@ -71,7 +71,7 @@ const Header = () =>{
         const isHome = location.pathname.length <=1;
         setHome(isHome);
         setShowCategories(isHome);
-    }, (location));
+    }, [location.pathname.length]);
 
     return (
     <>
@@ -243,13 +243,13 @@ const Header = () =>{
                         Danh sách sản phẩm
                     </div>
                     <ul className={isShowCategories? "": "hidden"}>
-                        {
-                            categories.map((categories,key) =>{
+                        {/* {
+                            categories.map((category,key) =>{
                                 <li key={key}>
 
                                 </li>
                             })
-                        }
+                        } */}
                         <li>
                             <Link to={"#"}>Vợt cầu lông</Link>
                         </li>

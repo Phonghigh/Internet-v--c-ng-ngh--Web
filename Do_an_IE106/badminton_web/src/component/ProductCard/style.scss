@@ -8,7 +8,7 @@
     &:hover{
         scale: 1.1;
         .featured_item_pic_hover{
-        bottom: -15% !important;
+            top: 75%;
         }
     }
 
@@ -34,6 +34,7 @@
                 margin-right: 10px;
 
                 &:hover {
+                    // top: 40%;
                     svg {
                         background: map.get($theme-colors,"main");
                         // border-color: #7fad39;

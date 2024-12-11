@@ -4,6 +4,7 @@ import HomePage from "./pages/user/homePage";
 import ProPage  from "./pages/user/ProfilePage"
 import Masterlayout from "./pages/user/theme/masterlayout";
 import ProductsPage from "./pages/user/ProductsPage";
+import ProductDetailPage from "./pages/user/ProductPage";
 
 const renderUserRouter =() =>{
     const userRouters =[
@@ -18,6 +19,10 @@ const renderUserRouter =() =>{
         {
             path: ROUTERS.USER.PRODUCTS,
             component: ProductsPage
+        },
+        {
+            path: ROUTERS.USER.PRODUCT,
+            component: ProductDetailPage
         },
     ];
 

@@ -1,0 +1,83 @@
+@use "sass:map";
+@import "../../../style/pages/all";
+
+
+.container{
+    .product_detail_pic{
+        display: flex;
+        column-gap: 10px;
+        // background: gray;
+        img{
+            flex: 0 0 65%;
+            object-fit:  contain;
+            width: 10%;
+            margin: 5px;
+            // background: rgb(211, 211, 211);
+            border: 1px solid rgb(215, 215, 215);
+            border-radius: 10px;
+        }
+        .main{
+            flex:  0 0 35%;
+            display: grid;
+            align-items: stretch;
+
+            img{
+                width: 60%;
+                object-fit: cover;
+
+                &:not(:first-child){
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+
+    .product_detail_text{
+        h2{
+            color: black;
+            font-weight: 700;
+        }
+        .seen_icon{
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            line-height: 30px;
+            column-gap: 5px;
+
+        }
+
+        p{
+            margin: 10px 0;
+            line-height: 25px;
+        }
+
+        ul {
+            margin: 20px 0;
+            border-top: 1px solid white;
+            padding-top: 20px;
+
+            li{
+                list-style: none;
+                display: flex;
+                column-gap: 20px;
+                line-height: 35px;
+
+                b{
+                    width: 150px;
+                }
+                span {
+                    display: flex;
+                    column-gap: 10px;
+                    align-items: center;
+                    font-weight: 700;
+                    // color: map.get($theme-colors,"main");
+
+                    svg{
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
