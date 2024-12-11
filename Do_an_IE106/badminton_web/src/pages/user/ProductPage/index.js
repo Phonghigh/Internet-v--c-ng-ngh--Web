@@ -14,7 +14,7 @@ import { AiOutlineCopy, AiOutlineEye, AiOutlineFacebook, AiOutlineInstagram, AiO
 import { formatter } from '../../../utils/formatter';
 import ProductCard from '../../../component/ProductCard';
 import { ImOpt } from 'react-icons/im';
-
+import Quantity from '../../../component/Quantity';
 
 const ProductDetailPage = () =>{
     const imgs =[cat2Img,cat4Img,cat5Img];
@@ -40,6 +40,7 @@ const ProductDetailPage = () =>{
                     </div>
                     <h3>{formatter(1490000)}</h3>
                     <p><b>Vợt cầu lông Victor CLS</b> (Control Light Speed) là dòng vợt được thiết kế để đáp ứng nhu cầu của những người chơi ưu tiên tốc độ và khả năng kiểm soát trong từng cú đánh</p>
+                    <Quantity />
                     <ul>
                         <li>
                             <b>Tình Trạng:</b>
