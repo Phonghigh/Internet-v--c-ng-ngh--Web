@@ -1,9 +1,6 @@
 import {memo} from 'react'
 import BreadCrumb from '../theme/breadCrumb';
 import "./style.scss"
-import { formatter } from '../../../utils/formatter';
-import { ROUTERS } from '../../../utils/router';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Ar_1 from '../../../assets/user/images/ariticle/Article.webp';
 
@@ -18,7 +15,7 @@ const ArticlePage = () =>{
     };
     return <>
     <BreadCrumb name="Liên hệ"/>
-    <div className="badminton-article-container">
+    <div className="badminton-article-container container">
         <h1 className="badminton-article-title">Cách chọn vợt cầu lông phù hợp cho người mới bắt đầu</h1>
         <div className="badminton-article-meta">
         <span className="author">Tác giả: Nguyễn Văn A</span>

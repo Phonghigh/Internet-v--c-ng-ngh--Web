@@ -1,19 +1,14 @@
 import {memo} from 'react'
 import BreadCrumb from '../theme/breadCrumb';
-import { Link } from 'react-router-dom';
 import "./style.scss"
-import { categories } from '../theme/header';
-import { ROUTERS } from '../../../utils/router';
 import cat1Img from "../../../assets/user/images/categories/cat-6.webp";
 import cat2Img from "../../../assets/user/images/categories/cat-7.webp";
-import cat3Img from "../../../assets/user/images/categories/cat-3.webp";
 import cat4Img from "../../../assets/user/images/categories/cat-8.webp";
 import cat5Img from "../../../assets/user/images/categories/cat-9.webp";
 import { featproducts } from '../../../utils/common';
-import { AiOutlineCopy, AiOutlineEye, AiOutlineFacebook, AiOutlineInstagram, AiOutlineMessage } from 'react-icons/ai';
+import { AiOutlineCopy, AiOutlineEye, AiOutlineFacebook, AiOutlineInstagram} from 'react-icons/ai';
 import { formatter } from '../../../utils/formatter';
 import ProductCard from '../../../component/ProductCard';
-import { ImOpt } from 'react-icons/im';
 import Quantity from '../../../component/Quantity';
 
 const ProductDetailPage = () =>{

@@ -8,7 +8,7 @@
     padding: 45px 0px 4px;
     justify-content: center;
     line-height: 30px;
-    background:  map.get($theme-colors,"main");
+    background:  map.get($theme-colors,"main") !important;
     text-align: center;
 
     .breadcrumb_text{

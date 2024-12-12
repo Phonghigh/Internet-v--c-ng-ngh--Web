@@ -1,0 +1,85 @@
+@use "sass:map";
+@import "../../style/pages/all";
+
+$cat1Img: "../../assets/user/images/categories/cat-1.webp";
+$cat2Img: "../../assets/user/images/categories/cat-2.webp";
+$cat3Img: "../../assets/user/images/categories/cat-3.webp";
+$cat4Img: "../../assets/user/images/categories/cat-4.webp";
+$cat5Img: "../../assets/user/images/categories/cat-5.webp";
+
+
+.container_categories_slider{
+    max-width: 1200px !important;
+    margin-bottom: 30px !important;
+
+    .categories_slider{
+        margin-top: 30px;
+        .categories_slider_item{
+            border-bottom: 10px solid white;
+            border-top: 10px solid white;
+            border-left: 10px solid white;
+            background: #ededed;
+            height: 300px;
+            position: relative;
+            // text-align: center;
+            background-position: top center;
+            border-radius: 5px;
+            
+            p{
+                margin: 250px auto;
+                // position: absolute;
+                // left: 5%;
+                bottom: 20px;
+                text-align: center;
+                font-size: 18px;
+                color: map.get($theme-colors,"normal-text");
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                padding: 12px 0 10px;
+                width: 80%;
+                border-radius: 20px;
+                cursor: pointer;
+
+                &:hover{
+                    color: white;
+                    background: map.get($theme-colors,"main");
+                }
+            }
+        }
+        #item_1{
+            // color: white;
+            background-image: url($cat1Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #item_2{
+            // color: white;
+            background-image: url($cat2Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #item_3{
+            // color: white;
+            background-image: url($cat3Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #item_4{
+            // color: white;
+            background-image: url($cat4Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #item_5{
+            // color: white;
+            background-image: url($cat5Img);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+    .react-multi-carousel-item:not(:child) {
+        
+        margin-left: 20px;
+    }
+}

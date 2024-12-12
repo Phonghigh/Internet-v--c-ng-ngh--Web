@@ -1,7 +1,12 @@
 import {memo} from 'react'
+import Dashboard from '../../../component/ProfilePages/Dashboard';
 
 const ProPage = () =>{
-    return <h1>Profile Page</h1>
+    return (
+        <div className='container'>
+        <Dashboard />
+        </div>
+    )
 };
 
 export default memo(ProPage);

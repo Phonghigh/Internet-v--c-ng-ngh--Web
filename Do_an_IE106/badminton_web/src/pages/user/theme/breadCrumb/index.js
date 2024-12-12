@@ -5,7 +5,7 @@ import "./style.scss"
 
 const BreadCrumb = (props) =>{
     return (
-    <div className='breadcrumb'>
+    <div className='breadcrumb container'>
         <div className='breadcrumb_text'>
             <h2>SMASH SHOP</h2>
             <div className='breaddrumb_option'>

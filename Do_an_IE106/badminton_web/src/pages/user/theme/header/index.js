@@ -8,7 +8,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillMail, AiOutlineDownCircle, AiOutlinePhone, AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Link,Router,useLocation } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 import { ROUTERS } from '../../../../utils/router';
 import React, { useState } from 'react';
 import { formatter } from '../../../../utils/formatter';
@@ -24,6 +24,26 @@ export const categories =[
 ];
 
 const Header = () =>{
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    useEffect(() => {
+        const status = sessionStorage.getItem("isLoggedIn");
+        if (status === "true") {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+        }, []); // Chạy chỉ một lần khi component mount
+
+        const handleLogin = () => {
+        sessionStorage.setItem("isLoggedIn", "true");
+        setIsLoggedIn(true); // Đảm bảo UI được cập nhật
+        };
+
+        const handleLogout = () => {
+        sessionStorage.setItem("isLoggedIn", "false");
+        setIsLoggedIn(false); // Đảm bảo UI được cập nhật
+        };
+
     const location = useLocation();
     const [isHome,setHome] = useState(location.pathname.length <=1);
     const [isShowCategories,setShowCategories] = useState(isHome);
@@ -113,9 +133,15 @@ const Header = () =>{
             </div>
             <div className='humberger_menu_widget'>
                 <div className='header_top_right_auth'>
-                    <Link to={ROUTERS.USER.LOGIN}>
-                        <BiUser /> Đăng nhập
-                    </Link>
+                    {isLoggedIn ? (
+                        <button onClick={handleLogout}>
+                            <BiUser /> Đăng xuất
+                        </button>
+                    ) : (
+                        <Link to="/login">
+                            <BiUser /> Đăng nhập
+                        </Link>
+                    )}
                 </div>
             </div>
             <div className='humberger_menu_nav'>
@@ -172,7 +198,7 @@ const Header = () =>{
                             <li>
                                 <AiFillMail />
                                 hello @gmail.com
-                            </li>
+                            </li>x``
                             <li>
                                 Miễn phí ship đơn từ {formatter(200000)}
                             </li>
@@ -185,9 +211,15 @@ const Header = () =>{
                             <li><BsInstagram /></li>
                             <li><BsTwitter /></li>
                             <li>
-                            <Link to={ROUTERS.USER.LOGIN}>
-                            <BiUser /> Đăng nhập
-                            </Link>
+                            {isLoggedIn ? (
+                                <Link onClick={handleLogout}>
+                                    <BiUser /> Đăng xuất
+                                </Link>
+                            ) : (
+                                <Link to={ROUTERS.USER.LOGIN}>
+                                    <BiUser /> Đăng nhập
+                                </Link>
+                            )}
                             </li>
                         </ul>
                     </div>
@@ -264,16 +296,16 @@ const Header = () =>{
                             })
                         } */}
                         <li>
-                            <Link to={ROUTERS.USER.PRODUCTS}>Vợt cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCT}>Vợt cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={ROUTERS.USER.PRODUCTS}>Giày cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCT}>Giày cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={ROUTERS.USER.PRODUCTS}>Lưới cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCT}>Lưới cầu lông</Link>
                         </li>
                         <li>
-                            <Link to={ROUTERS.USER.PRODUCTS}>Quấn cán cầu lông</Link>
+                            <Link to={ROUTERS.USER.PRODUCT}>Quấn cán cầu lông</Link>
                         </li>
                         
                     </ul>

@@ -1,28 +1,24 @@
-import {memo} from 'react'
-import "react-multi-carousel/lib/styles.css";
-import feature1Img from "../../../assets/user/images/feature/feature-1.jpg";
-import feature2Img from "../../../assets/user/images/feature/feature-2.jpg";
-import feature3Img from "../../../assets/user/images/feature/feature-3.jpg";
-import banner1Img from "../../../assets/user/images/feature/banner-1.webp";
-import banner2Img from "../../../assets/user/images/feature/banner-2.webp";
-import feature4Img from "../../../assets/user/images/feature/feature-4.webp";
-import feature5Img from "../../../assets/user/images/feature/feature-5.webp";
-import feature6Img from "../../../assets/user/images/feature/feature-6.webp";
-import feature7Img from "../../../assets/user/images/feature/feature-7.webp";
-import feature8Img from "../../../assets/user/images/feature/feature-8.webp";
-import feature9Img from "../../../assets/user/images/feature/feature-9.webp";
-import feature10Img from "../../../assets/user/images/feature/feature-10.webp";
-import feature11Img from "../../../assets/user/images/feature/feature-11.webp";
-import feature12Img from "../../../assets/user/images/feature/feature-12.webp";
-import feature13Img from "../../../assets/user/images/feature/feature-13.webp";
-import feature14Img from "../../../assets/user/images/feature/14.webp";
-import ProductCard from '../../../component/ProductCard';
+import React from "react";
 import "./style.scss";
-import { Tabs,TabList,TabPanel,Tab } from 'react-tabs';
-import { useState } from 'react';
-import Slider from '../../../component/ProductsSlider/index.js';
+import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
+import { ROUTERS } from "../../utils/router";
+import feature1Img from "../../assets/user/images/feature/feature-1.jpg";
+import feature2Img from "../../assets/user/images/feature/feature-2.jpg";
+import feature3Img from "../../assets/user/images/feature/feature-3.jpg";
+import feature4Img from "../../assets/user/images/feature/feature-4.webp";
+import feature5Img from "../../assets/user/images/feature/feature-5.webp";
+import feature6Img from "../../assets/user/images/feature/feature-6.webp";
+import feature7Img from "../../assets/user/images/feature/feature-7.webp";
+import feature8Img from "../../assets/user/images/feature/feature-8.webp";
+import feature9Img from "../../assets/user/images/feature/feature-9.webp";
+import feature10Img from "../../assets/user/images/feature/feature-10.webp";
+import feature11Img from "../../assets/user/images/feature/feature-11.webp";
+import feature12Img from "../../assets/user/images/feature/feature-12.webp";
+import feature13Img from "../../assets/user/images/feature/feature-13.webp";
+import feature14Img from "../../assets/user/images/feature/14.webp";
 
-const HomePage = () =>{
+const Slider = () => {
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -182,68 +178,34 @@ const HomePage = () =>{
         },
     };
 
-    const RenderFeatureProduct = (data) => {
-        const [activeTab, setActiveTab] = useState(0);
-        const tablist = [];
-        const tabPanels = [];
-    
-        Object.keys(data).forEach((key, index) => {
-            tablist.push(
-                <Tab 
-                key={index}
-                className={`tab ${activeTab === index ? 'active' : ''}`} // Thêm class active nếu tab này được chọn
-                onClick={() => setActiveTab(index)}
-                >
-                    {data[key].title}
-                </Tab>);
-            
-            // Tạo nội dung cho từng tabPanel
-            const tabPanel = [];
-            data[key].products.forEach((item, j) =>{
-                tabPanel.push(
-                <div className='col-lg-3 col-md-4 col-sm-6 col-xs12' key={j}>
-                    <ProductCard name={item.name} img={item.img} price={item.price} />
-                </div>);
-            });
-            tabPanels.push(tabPanel);
-        });
-    
-        return (
-            <Tabs>
-                <TabList>{tablist}</TabList>
-                {tabPanels.map((content, key) => (
-                    <TabPanel key={key}>
-                        <div className="row">
-                            {content}
-                        </div>
-                    </TabPanel>
-                ))}
-            </Tabs>
-        );
-    };
     return (
-    <>
-        <Slider />
-        <div className='container'>
-            <div className='featured'>
-                <div className="section_title">
-                    <h2>Sản Phẩm Nổi Bật</h2>
-                </div>
-                {RenderFeatureProduct(featproducts)}
-            </div>
+        <div className='container container_categories_slider'>
+                    <Carousel 
+                        responsive={responsive} 
+                        className='categories_slider'
+                        autoPlay={true} // Bật tự động chuyển
+                        autoPlaySpeed={2000} // Tốc độ tự động chuyển (ms)
+                        infinite={true} // Vòng lặp carousel
+                        transitionDuration={3000}//tốc độ animate
+                    >
+                        <div className='categories_slider_item' id='item_1'>
+                            <Link to={ROUTERS.USER.PRODUCTS}><p>Vợt cầu lông</p></Link>
+                        </div>
+                        <div className='categories_slider_item' id='item_2'>
+                            <Link to={ROUTERS.USER.PRODUCTS}><p>Giày cầu lông</p></Link>
+                        </div>
+                        <div className='categories_slider_item' id='item_3'>
+                            <Link to={ROUTERS.USER.PRODUCTS}><p>Quấn cán</p></Link>
+                        </div>
+                        <div className='categories_slider_item' id='item_4'>
+                            <Link to={ROUTERS.USER.PRODUCTS}><p>Lưới cầu lông</p></Link>
+                        </div>
+                        <div className='categories_slider_item' id='item_5'>
+                            <Link to={ROUTERS.USER.PRODUCTS}><p>Túi cầu lông</p></Link>
+                        </div>
+                    </Carousel>
         </div>
-        <div className='container'>
-            <div className='banner'>
-                <div className='banner_pic'>
-                    <img src={banner1Img} alt='banner'></img>
-                </div>
-                <div className='banner_pic'>
-                    <img src={banner2Img} alt='banner'></img>
-                </div>
-            </div>
-        </div>
-    </>
-    )
+    );
 };
 
-export default memo(HomePage);
+export default Slider;

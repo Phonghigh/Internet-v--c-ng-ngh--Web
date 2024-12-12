@@ -1,0 +1,54 @@
+@use "sass:map";
+@import "../../../style/pages/all";
+
+.payment-options {
+    margin-top: 20px;
+    .cards {
+        display: flex;
+        gap: 20px;
+
+        .card {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+
+        p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button {
+            margin-top: 10px;
+            background: #ff4d4f;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            &:hover {
+            background: #d9363e;
+            }
+        }
+        }
+    }
+
+    .add-card {
+        margin-top: 20px;
+        background: map.get($theme-colors,"main");
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+        background: #ebc41d;
+        }
+    }
+}
