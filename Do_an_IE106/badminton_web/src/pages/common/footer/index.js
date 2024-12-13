@@ -11,7 +11,7 @@ const Footer = () =>{
                     <div className =' footer__about'>
                         <h1 className =' footer__about__logo'>SMASH SHOP</h1>
                         <ul>
-                            <li>Địa chỉ, 4 einstein Bình Thọ, Thủ Đứcm Bình Dương</li>
+                            <li>Địa chỉ, 4 einstein Bình Thọ, Thủ Đức Bình Dương</li>
                             <li>Phone: 0557-843-408</li>
                             <li>Email: Smahshop@gmail.com</li>
                         </ul>

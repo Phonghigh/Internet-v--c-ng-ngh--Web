@@ -179,7 +179,7 @@ const Header = () =>{
             <div className='humberger_menu_contact'>
                 <ul>
                     <li>
-                        <FaEnvelope /> Smash@gmail.com
+                        <FaEnvelope />Smash@gmail.com
 
                     </li>
                     <li>
@@ -197,8 +197,8 @@ const Header = () =>{
                         <ul>
                             <li>
                                 <AiFillMail />
-                                hello @gmail.com
-                            </li>x``
+                                smash@gmail.com
+                            </li>
                             <li>
                                 Miễn phí ship đơn từ {formatter(200000)}
                             </li>
